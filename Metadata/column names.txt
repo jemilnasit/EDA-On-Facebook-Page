@@ -1,0 +1,19 @@
+Page total likes : page_TL
+Type : type
+Category : category 
+Post Month : post_M
+Post Weekday : post_W
+Post Hour : post_H
+Paid : paid
+Lifetime Post Total Reach : LPTR
+Lifetime Post Total Impressions : LPTI
+Lifetime Engaged Users : LEU
+Lifetime Post Consumers : LP_Consumers
+Lifetime Post Consumptions : LP_consumptions
+Lifetime Post Impressions by people who have liked your Page : LPI_PLpage
+Lifetime Post reach by people who like your Page : LPR_PLpage
+Lifetime People who have liked your Page and engaged with your post : L_PLP_EP	
+comment : comment
+like : like
+share : share
+Total Interactions : TI
