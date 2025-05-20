@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+from sklearn.preprocessing import LabelEncoder
 
 st.title("CSV File Upload and Display")
 st.write("Upload a CSV file to display its contents.")
@@ -13,14 +14,6 @@ if uploaded_file is not None:
         st.write("DataFrame:")
         st.dataframe(df)
 
-        # Display the first 5 rows of the dataframe
-        st.write("First 5 rows of the DataFrame:")
-        st.dataframe(df.head())
-
-        # Display the last 5 rows of the dataframe
-        st.write("Last 5 rows of the DataFrame:")
-        st.dataframe(df.tail())
-
         # Display the shape of the dataframe
         st.write("Shape of the DataFrame:")
         st.write(df.shape)
@@ -29,9 +22,21 @@ if uploaded_file is not None:
         st.write("Columns in the DataFrame:")
         st.write(df.columns.tolist())
 
+        df.dropna(inplace=True)
         # Display basic statistics of the dataframe
         st.write("Basic Statistics of the DataFrame:")
         st.dataframe(df.describe())
-    
+        
+        
+        le_df = LabelEncoder()
+        for column in df.columns:
+            if df[column].dtype == 'object':
+                df[column] = le_df.fit_transform(df[column])
+                
+        st.write("Label Encoded DataFrame:")
+        st.dataframe(df)
+        
+        
     except Exception as e:
         st.error(f"Error reading the CSV file: {e}")
+        
